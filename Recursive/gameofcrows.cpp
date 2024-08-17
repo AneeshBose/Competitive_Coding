@@ -82,7 +82,11 @@ int main() {
         for(int j = 0; j < cols; j++)
             colours.insert(grid[i][j]);
     }
-    
+    if (rows != cols || rows != colours.size())
+    {
+		cout << "Solution cannot be formed\n";
+		return;
+    }
     vector<vector<char>> ans(rows, vector<char> (cols, '.'));
     unordered_map<int, bool> rowmap, colmap;
     unordered_map<char, bool> colormap;
