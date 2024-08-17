@@ -88,8 +88,8 @@ int main() {
     
     if (rows != cols || rows != colours.size())
     {
-		cout << "Solution cannot be formed\n";
-		return 0;
+	cout << "Solution cannot be formed\n";
+	return 0;
     }
     
     vector<vector<char>> ans(rows, vector<char> (cols, '.'));
