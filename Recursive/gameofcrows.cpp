@@ -36,8 +36,7 @@ void placeQueens(int r, int rows, int cols, int queenCount, int totalQueens, uno
     if(queenCount == totalQueens)
     {
         printGrid(ans, rows, cols);
-        cout << endl;
-        exit(0);
+        cout << "\n\n";
     }
     
     for(int j = 0; j < cols; j++)
@@ -66,33 +65,39 @@ void placeQueens(int r, int rows, int cols, int queenCount, int totalQueens, uno
 int main() {
 	// your code goes here
 	vector<string> grid = {
-        "RRGBBB",
-        "GGGYBB",
-        "GGGYYB",
-        "CCGYYB",
-        "CCPPYB",
-        "CCCCYY"
+        "OOGGGGGG",
+        "OOPGGGGY",
+        "OOPYYYYY",
+        "OOPPPYYY",
+        "OOPPPTTY",
+        "OOXPTTRR",
+        "OXXPPBBR",
+        "OXXPPBBB"
     };
     
     vector<vector<vector<char>>> answers; 
     unordered_set<char> colours; 
     int rows = grid.size(), cols = grid[0].size();
+    
+    cout << rows << " " << cols << endl;
     for(int i = 0; i < rows; i++)
     {
         for(int j = 0; j < cols; j++)
             colours.insert(grid[i][j]);
     }
+    
     if (rows != cols || rows != colours.size())
     {
 		cout << "Solution cannot be formed\n";
-		return;
+		return 0;
     }
+    
     vector<vector<char>> ans(rows, vector<char> (cols, '.'));
     unordered_map<int, bool> rowmap, colmap;
     unordered_map<char, bool> colormap;
     
     placeQueens(0, rows, cols, 0, colours.size(), rowmap, colmap, colormap, ans, grid);
-    // printGrid(ans, rows, cols);
+    
 
     return 0;
 }
